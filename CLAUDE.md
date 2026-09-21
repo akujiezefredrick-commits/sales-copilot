@@ -44,7 +44,7 @@ Headers in row 1 (live sheet): Full-Name | Email | Phone Number | Website | Link
 python -m venv .venv; .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000     # run locally
-ngrok http 8000                                # expose for Typeform
+ngrok http 8000                                # expose for local testing (production runs on Render)
 python scripts/send_test_webhook.py            # replay a signed test payload
 pytest                                         # tests
 ```
@@ -71,5 +71,7 @@ If the Sheet can't be written, the lead is saved to `failed_leads.jsonl`, so not
 - `icp.md` written: a done-for-you content/lead-gen agency for founder-led coaches and consultants.
 - Using Gemini's free tier because the Anthropic balance is $0. To switch to Claude, set `LLM_PROVIDER=anthropic`.
 - Step 7 done (2026-09-21): Typeform webhook live via ngrok, with the secret set in Typeform, and leads reach the Sheet end to end. The winget ngrok (3.3.1) is too old, so run the current one from `%USERPROFILE%\Downloads\ngrok-v3-stable-windows-amd64\ngrok.exe http 8000`. The free ngrok URL can change on restart; update the Typeform webhook if it does.
-- Next: add the optional founder LinkedIn question to Typeform (put its ref in `TF_REF_FOUNDER_LINKEDIN`).
-- Local only for now (ngrok). Deploy target (Railway or Render) comes later.
+- Deployed on Render (2026-09-21), Free plan, from `render.yaml`: https://sales-copilot-16vh.onrender.com. The Typeform webhook points to `/webhook/typeform` there. Repo: github.com/akujiezefredrick-commits/sales-copilot (private); pushes to `main` redeploy.
+- On Render, `service-account.json` is a Secret File mounted at `/etc/secrets/`. Env vars are set in the Render dashboard, so a changed `.env` value must be updated there too.
+- Free plan: sleeps after 15 min idle (first request is slow), and `failed_leads.jsonl` is wiped on every restart or deploy.
+- Next: add the optional founder LinkedIn question to Typeform (put its ref in `TF_REF_FOUNDER_LINKEDIN`, locally and on Render).
