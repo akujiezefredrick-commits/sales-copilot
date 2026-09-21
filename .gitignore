@@ -1,0 +1,8 @@
+.env
+service-account*.json
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+failed_leads.jsonl
+.claude/

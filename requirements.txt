@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+anthropic
+google-genai
+apify-client
+gspread
+google-auth
+python-dotenv
+pydantic
+httpx
+pytest

@@ -1,0 +1,30 @@
+{
+  "event_id": "01M31NSK14S99JAT7GG4XN409S",
+  "event_type": "form_response",
+  "form_response": {
+    "form_id": "hBL5l8tz",
+    "token": "01M31NSK14S99JAT7GG4XN409S",
+    "landed_at": "2026-09-21T09:47:14Z",
+    "submitted_at": "2026-09-21T09:47:14Z",
+    "definition": {
+      "id": "hBL5l8tz",
+      "title": "My branded typeform",
+      "fields": [
+        {"id": "yInxdRkzhiX9", "ref": "da57594e-5f51-4c20-aad0-63052ac48469", "type": "short_text", "title": "First name", "properties": {}},
+        {"id": "QrhBvTakud07", "ref": "fcbad6cc-bf39-475f-b3f5-03b4539dccfe", "type": "email", "title": "Email", "properties": {}},
+        {"id": "cVsDcrUd9cKL", "ref": "d59ce916-f4a8-4be5-b109-8c86555d99f1", "type": "phone_number", "title": "Phone number", "properties": {}},
+        {"id": "e2ryFdQcycwj", "ref": "4ad25b57-a012-48c2-bb89-ac73fdf6a5b3", "type": "website", "title": "Company Website", "properties": {}},
+        {"id": "Cb3IGFUHDsig", "ref": "11ef1c2f-1663-4382-a909-d757b4782193", "type": "website", "title": "Linked In URL", "properties": {}}
+      ],
+      "settings": {"partial_responses_to_all_integrations": true}
+    },
+    "answers": [
+      {"type": "text", "text": "Lorem ipsum dolor", "field": {"id": "yInxdRkzhiX9", "type": "short_text", "ref": "da57594e-5f51-4c20-aad0-63052ac48469"}},
+      {"type": "email", "email": "an_account@example.com", "field": {"id": "QrhBvTakud07", "type": "email", "ref": "fcbad6cc-bf39-475f-b3f5-03b4539dccfe"}},
+      {"type": "phone_number", "phone_number": "+34123456789", "field": {"id": "cVsDcrUd9cKL", "type": "phone_number", "ref": "d59ce916-f4a8-4be5-b109-8c86555d99f1"}},
+      {"type": "url", "url": "http://example-url.com", "field": {"id": "e2ryFdQcycwj", "type": "website", "ref": "4ad25b57-a012-48c2-bb89-ac73fdf6a5b3"}},
+      {"type": "url", "url": "http://example-url.com", "field": {"id": "Cb3IGFUHDsig", "type": "website", "ref": "11ef1c2f-1663-4382-a909-d757b4782193"}}
+    ],
+    "ending": {"id": "YRTVRytJ3aq0", "ref": "17b9e6cb-ec55-4deb-ac01-95fda5ea2d64"}
+  }
+}

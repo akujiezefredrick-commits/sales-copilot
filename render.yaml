@@ -1,0 +1,46 @@
+# Render Blueprint: New > Blueprint > pick this repo.
+# Secrets (sync: false) are entered in the dashboard on first deploy, never committed.
+# service-account.json goes in as a Secret File (Environment > Secret Files); Render mounts it at /etc/secrets/.
+services:
+  - type: web
+    name: sales-copilot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: APIFY_TOKEN
+        sync: false
+      - key: APIFY_LINKEDIN_ACTOR
+        value: harvestapi/linkedin-company
+      - key: APIFY_WEBSITE_ACTOR
+        value: apify/website-content-crawler
+      - key: APIFY_PROFILE_ACTOR
+        value: harvestapi/linkedin-profile-scraper
+      - key: APIFY_POSTS_ACTOR
+        value: harvestapi/linkedin-profile-posts
+      - key: TYPEFORM_SECRET
+        sync: false
+      - key: TF_REF_FULL_NAME
+        sync: false
+      - key: TF_REF_EMAIL
+        sync: false
+      - key: TF_REF_PHONE
+        sync: false
+      - key: TF_REF_WEBSITE
+        sync: false
+      - key: TF_REF_LINKEDIN
+        sync: false
+      - key: TF_REF_FOUNDER_LINKEDIN
+        sync: false
+      - key: GOOGLE_SA_JSON
+        value: /etc/secrets/service-account.json
+      - key: GOOGLE_SHEET_ID
+        sync: false
